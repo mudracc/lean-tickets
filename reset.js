@@ -49,7 +49,7 @@ client.once(Events.ClientReady, async () => {
 
   client.user.setPresence({
     status: "dnd",
-    activities: [{ name: "/texting /cuban /belair", type: ActivityType.Watching }],
+    activities: [{ name: "discord.gg/cuban", type: ActivityType.Watching }],
   });
 
   const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
@@ -61,7 +61,7 @@ client.once(Events.ClientReady, async () => {
     await rest.put(Routes.applicationCommands(client.user.id), { body: commandsArray });
 
     // 💡 If you want INSTANT commands, uncomment this line and put your test server ID
-    await rest.put(Routes.applicationGuildCommands(client.user.id, "1425726284566102189"), { body: commandsArray });
+    await rest.put(Routes.applicationGuildCommands(client.user.id, "bot_id"), { body: commandsArray });
 
     console.log("✅ Slash commands registered successfully.");
   } catch (err) {
@@ -131,3 +131,4 @@ client.on(Events.InteractionCreate, async (interaction) => {
 });
 
 client.login(process.env.TOKEN);
+
